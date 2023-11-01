@@ -21,7 +21,7 @@ class WebPagesIndexController extends AbstractController
     
     // Index Page
     // -------------------------------------------------------------------------------------------
-    #[Route('/{_locale}', name: 'web_index', requirements: ['_locale' => 'fr'])]
+    #[Route('/{_locale}', name: 'web_index', requirements: ['_locale' => 'fr|en'])]
     public function index(): Response
     {
         return $this->pages_services->getMainPage($this->request);

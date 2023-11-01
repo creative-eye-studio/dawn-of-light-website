@@ -16,6 +16,7 @@ import { Parallax } from './parallax';
 import { createApp } from 'vue';
 import AOS from 'aos';
 import LastPosts from './vue/controllers/LastPosts';
+import Newsletter from "./vue/controllers/Newsletter";
 
 // Variables
 // -----------------------------------------------
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function(){
     scrollWeb();
     parallax();
     createApp({
-        components: { LastPosts }
+        components: { LastPosts, Newsletter }
     }).mount('#website');
 });
 

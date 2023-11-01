@@ -1,0 +1,14 @@
+input {
+    border: .0625rem solid lightgray;
+    background-color: #151515;
+    &[type=text],
+    &[type=email]  {
+        @include font(400, $fsBody, false, $ff-body);
+        @extend .wd-100;
+        color: $colorWt;
+        padding: calc($marge-m / 2) $marge-m;
+    }
+    &[type=submit] {
+        @include btn-style();
+    }
+}

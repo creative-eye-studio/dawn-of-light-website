@@ -10,7 +10,7 @@ $grid-size: 12;
 // -----------------------------------------
 $marge-m: 2rem;
 $marge-d-x: 10vw;
-$marge-d-y: 5vw;
+$marge-d-y: 7.5rem;
 
 
 // DISPLAYS
@@ -89,24 +89,24 @@ $sizesValues: (
 
 // FONTS
 // -----------------------------------------
-$ff-title: '';
-$ff-body: '';
+$ff-title: 'Bebas Neue';
+$ff-body: 'Exo';
 
 
 // FONTS SIZES
 // -----------------------------------------
 $fsBody: 16;
-$fsTitleMob: 24;
+$fsTitleMob: 32;
 $fsTitle1: 48;
-$fsTitle2: 32;
-$fsTitle3: 28;
-$fsTitle4: 24;
-$fsTitle5: 20;
+$fsTitle2: 36;
+$fsTitle3: 32;
+$fsTitle4: 28;
+$fsTitle5: 24;
 
 
 // LINE HEIGHTS
 // -----------------------------------------
-$lhTitle: 1.2;
+$lhTitle: 1.1;
 $lhText: 1.5;
 
 
@@ -116,3 +116,4 @@ $colorBk: #171717;
 $colorWt: #FFF;
 
 $colorP: '';
+$colorS: #850606;

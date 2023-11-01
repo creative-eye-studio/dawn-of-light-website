@@ -131,9 +131,8 @@ class PagesService extends AbstractController{
             'lang_page' => $this->locales_web()[$lang],
             'meta_title' => $page->getPageMetaTitle()[$lang],
             'meta_desc' => $page->getPageMetaDesc()[$lang],
-            'last_posts' => $this->posts_services->getLastPosts(),
-            'posts' => $this->posts_services->getAllPosts(),
             'settings' => $this->settings,
+            'logo' => $this->settings->getlogo(),
             'menus' => $this->menus
         ]);
     }
@@ -169,8 +168,8 @@ class PagesService extends AbstractController{
     {
         $locales = Locales::getLocales();
         $localesSite = [
-            $locales[280], // FR
-            $locales[96] // EN
+            $locales[296], // FR
+            // $locales[96] // EN
         ];
         return $localesSite;
     }

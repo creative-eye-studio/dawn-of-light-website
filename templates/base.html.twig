@@ -13,7 +13,8 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
-            {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tarteaucitronjs/1.11.0/css/tarteaucitron.min.css" integrity="sha512-An5uG5l2933DG8oK8mICT7TycnhhY2Ti1xVSj2XW/scxb0jRvE1kLUh8ECth38zr+MlE4LH3l5xblJ+Ns0JINg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> #}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tarteaucitronjs/1.11.0/css/tarteaucitron.min.css" integrity="sha512-An5uG5l2933DG8oK8mICT7TycnhhY2Ti1xVSj2XW/scxb0jRvE1kLUh8ECth38zr+MlE4LH3l5xblJ+Ns0JINg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         {% endblock %}
     </head>
     <body
@@ -34,8 +35,8 @@
                 <main id="main">
                     {% block body %}{% endblock %}
                 </main>
+                {% include "webpages/blocks/footer.html.twig" %}
             </div>
-            {% include "webpages/blocks/footer.html.twig" %}
         </div>
 
         {% block javascripts %}
@@ -43,6 +44,7 @@
             {{ encore_entry_script_tags('app') }}
             <script src="https://cdnjs.cloudflare.com/ajax/libs/tarteaucitronjs/1.11.0/tarteaucitron.js" integrity="sha512-bDyrKjNycnlzdeKsBI4TOHhiDmAx9LtNkZo/IfdLZGlzYTREqmAdvgHy876IOBfZ7UUq7mIz4t4ZHoG8w/xTdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             {{ encore_entry_script_tags('tarteaucitronjs') }}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
          {% endblock %}
     </body>
 </html>

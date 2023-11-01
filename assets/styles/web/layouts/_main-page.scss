@@ -1,0 +1,103 @@
+// MAIN
+#home{
+    @extend .ht-100vh;
+    @extend .d-flex;
+    @extend .padding-vertical-no-md;
+    justify-content: center;
+    align-items: center;
+    background: #070707;
+    video{
+        @extend .wd-100;
+        @extend .ht-100;
+        object-fit: cover;
+    }
+    @media screen and (max-width: $sm){
+        height: inherit;
+        video {
+            aspect-ratio: 16/9;
+        }
+    }
+}
+
+// A propos
+#section-1 {
+    .title-block {
+        color: $colorWt;
+        background: #151515;
+    }
+    .about-block{
+        color: $colorWt;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%), url("../../../../public/uploads/images/bg-about.png"), lightgray 50% / cover no-repeat;
+        background-size: cover;
+    }
+    @media screen and (max-width: $sm){
+        .about-block {
+            .row{
+                padding: 0;
+            }
+            .text{
+                padding: $marge-m;
+            }
+            .image{
+                padding: 0;
+            }
+        }    
+    }
+}
+
+// Caractéristiques
+#section-2 {
+    h2{
+        @extend .margin-none;
+        @extend .text-center;
+    }
+    .point-card{
+        @extend .text-justify;
+        display: flex;
+        &:not(:last-child){
+            margin: 3.12rem 0;
+        }
+        * {
+            flex: 2;
+        }
+        .text{
+            padding-top: 3.12rem;
+            h3{
+                @extend .margin-none;
+                padding-top: 1.06rem;
+                padding-bottom: 1.06rem;
+                background-color: $colorS;
+            }
+            .content-text{
+                padding-top: 3.12rem;
+                padding-bottom: 3.12rem;
+            }
+        }
+        &:nth-child(even){
+            flex-direction: row-reverse;
+            h3, .content-text{
+                padding-left: 3.12rem;
+            }
+        }
+        &:nth-child(odd){
+            h3{
+                text-align: right;
+            }
+            h3, .content-text{
+                padding-right: 3.12rem;
+            }
+        }
+    }
+}
+
+// Equipe
+#section-3 {
+    hr{
+        margin: 3.12rem 0;
+    }
+    .partner {
+        .text{
+            padding-left: 3.12rem;
+        }
+    }
+}

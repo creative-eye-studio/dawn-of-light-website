@@ -1,0 +1,29 @@
+header {
+    @extend .position-fixed;
+    @extend .wd-100;
+    @extend .border-bottom;
+    @extend .d-flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $marge-d-y;
+    color: $colorWt;
+    background-color: #151515;
+    padding: 0 $marge-d-x;
+    z-index: 1;
+    figure {
+        @extend .ht-100;
+        @extend .d-flex;
+        align-items: center;
+        img{
+            width: auto;
+            height: 75%;
+        }
+    }
+    ul{
+        @extend .d-flex;
+        gap: $marge-m;
+    }
+    a{
+        text-decoration: none;
+    }
+}

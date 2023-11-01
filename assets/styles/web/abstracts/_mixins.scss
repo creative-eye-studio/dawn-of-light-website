@@ -75,12 +75,12 @@
 @mixin flexColSize($size){
     width: calc(100% / $grid-size) * $size;
     padding: 0 calc($marge-d-x / 2);
-    &-no-marge{
+    &.no-marge{
         padding: 0;  
     }  
     @media screen and (max-width: $sm) {
         padding: 0 calc($marge-m / 2);
-        &-no-marge{
+        &.no-marge{
             padding: 0;  
         } 
     }
@@ -357,7 +357,7 @@
     &-bottom{
         @include margeInit($type, 'bottom');
         &-none{
-            margin-bottom: 0;
+            #{$type}-bottom: 0;
         }
         @each $state in on {
             &-#{$state} {
@@ -381,7 +381,7 @@
     &-left{
         @include margeInit($type, 'left');
         &-none{
-            margin-left: 0;
+            #{$type}-left: 0;
         }
         @each $state in on {
             &-#{$state} {
@@ -405,7 +405,7 @@
     &-right{
         @include margeInit($type, 'right');
         &-none{
-            margin-right: 0;
+            #{$type}-right: 0;
         }
         @each $state in on {
             &-#{$state} {
@@ -457,6 +457,18 @@
     }
   }
 /* #endregion Display */
+
+
+/* #region Buttons */
+@mixin btn-style() {
+    @include font(400, $fsBody, false, $ff-body);
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: $colorWt;
+    background-color: $colorS;
+}
+/* #endregion Buttons */
 
 
 /* #region Custom Animate */

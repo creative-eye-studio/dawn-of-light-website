@@ -1,0 +1,62 @@
+footer {
+    ul {
+        @extend .d-flex;
+        @extend .margin-none;
+        @extend .padding-left-none;
+        list-style-type: none;
+        justify-content: center;
+        align-items: center;
+        gap: $marge-m
+    }
+    .content {
+        padding: 3.75rem $marge-d-x;
+        color: white;
+        a{
+            text-decoration: none;
+        }
+    }
+    // Newsletter
+    .newsletter {
+        @extend .border-top;
+        @extend .border-bottom;
+        background-color: #151515;
+        #news-form {
+            @extend .position-relative;
+            input {
+                &[type=email] {
+                    height: 58px;
+                    margin-bottom: 40px;    
+                }
+                &[type=submit]{
+                    @extend .position-absolute;
+                    top: 0;
+                    right: 0;
+                }
+                &[type=checkbox] {
+                    margin: 0 20px 0 0;
+                }
+            }
+        }
+    }
+    // Social
+    .social {
+        @extend .border-right;
+        background-color: #020202;
+        a {
+            @extend .d-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background-color: $colorS;
+            border-radius: 10rem;
+        }
+    }
+    // Sign
+    .sign {
+        background-color: #020202;
+        p {
+            margin-bottom: 1rem;
+        }
+    }
+}

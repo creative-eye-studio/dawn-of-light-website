@@ -5,8 +5,18 @@
 body{
     @extend .margin-none;
     font-size: #{$fsBody}px;
-    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
-    letter-spacing: 0.04em;
+    font-family: $ff-body;
+    letter-spacing: 0.07em;
+}
+
+a{
+    color: inherit;
+}
+
+ul{
+    @extend .margin-none;
+    @extend .padding-left-none;
+    list-style-type: none;;
 }
 
 figure{
@@ -21,10 +31,14 @@ figure{
 
 .cover-img{
     @extend .margin-none;
+    @extend .position-relative;
     img{
         @extend .position-absolute;
         @extend .wd-100;
         @extend .ht-100;
+        top: 0;
+        left: 0;
+        object-fit: cover;
     }
     &-no{
         &-md{
@@ -92,5 +106,4 @@ figure{
             }        
         }
     }
-    
 }

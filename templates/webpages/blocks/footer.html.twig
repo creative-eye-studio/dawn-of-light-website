@@ -1,7 +1,44 @@
-<footer>
-	<p>Conception et développement : Creative Eye Studio</p>
-	<ul id="nav" class="margin-none padding-none">
-		{{ include('webpages/blocks/_navigation.html.twig', { pos: 1 }) }}
-		<li><span onclick="tarteaucitron.userInterface.openPanel();">Cookies</span></li>
-	</ul>
+<footer class="container-fluid">
+	<div class="row-no-marge">
+		<div class="newsletter col-12 no-marge">
+			<div class="content">
+				<Newsletter></Newsletter>
+			</div>
+		</div>
+		<div class="social col-6 no-marge">
+			<div class="content">
+				<ul>
+					<li>
+						<a href="https://www.facebook.com" target="_blank" rel="noopener">
+							<i class="fa-brands fa-xl fa-facebook-f" style="color: #ffffff;"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com" target="_blank" rel="noopener">
+							<i class="fa-brands fa-xl fa-instagram" style="color: #ffffff;"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com" target="_blank" rel="noopener">
+							<i class="fa-brands fa-xl fa-youtube" style="color: #ffffff;"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com" target="_blank" rel="noopener">
+							<i class="fa-brands fa-xl fa-discord" style="color: #ffffff;"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="sign col-6 no-marge">
+			<div class="content text-center">
+				<p>Conception et développement : Creative Eye Studio</p>
+				<ul id="nav" class="margin-none padding-none">
+					{{ include('webpages/blocks/_navigation.html.twig', { pos: 2 }) }}
+					<li><span onclick="tarteaucitron.userInterface.openPanel();">Cookies</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </footer>

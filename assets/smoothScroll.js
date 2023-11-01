@@ -38,8 +38,9 @@ export class ScrollWeb {
         // Scroll au click d'une ancre
         const navLinks = document.querySelectorAll('a[href^="#"]');
         navLinks.forEach(btn => {
-            btn.addEventListener('click', function(){
-                const margin = 0;
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const margin = 120;
                 const target = btn.getAttribute('href') || btn.getAttribute('data-link');
                 const anchor = document.querySelector(target);
                 const offset = container.getBoundingClientRect().top - anchor.getBoundingClientRect().top;
@@ -47,7 +48,6 @@ export class ScrollWeb {
                     offset, 
                     offsetTop: margin
                 });
-                return false;
             })
         })
 

@@ -5,6 +5,7 @@
 // BASE
 @import './base/reset';
 @import './base/typography';
+@import './base/color';
 
 // COMPONENTS
 @import './components/parallax';
@@ -14,6 +15,8 @@
 @import './components/custom-animate';
 
 // LAYOUT
+@import './layouts/forms';
 @import './layouts/header';
 @import './layouts/navigation';
+@import './layouts/main-page';
 @import './layouts/footer';
