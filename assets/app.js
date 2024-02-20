@@ -29,12 +29,11 @@ const values = {
 // Instantieur
 // -----------------------------------------------
 document.addEventListener('DOMContentLoaded', function(){
-    AOS.init();
-    scrollWeb();
-    parallax();
     createApp({
         components: { LastPosts, Newsletter }
     }).mount('#website');
+    scrollWeb();
+    parallax();
 });
 
 // Smooth Scrollbar
