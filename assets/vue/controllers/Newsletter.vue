@@ -1,7 +1,7 @@
 <template>
     <form id="news-form">
         <div class="input">
-            <input type="email" name="news-email" id="news-email">
+            <input type="email" name="news-email" id="news-email" aria-label="S'inscrire à notre newsletter" placeholder="S'inscrire à notre newsletter">
             <input type="submit" value="S'inscrire">    
         </div>
         <div class="checkbox">
