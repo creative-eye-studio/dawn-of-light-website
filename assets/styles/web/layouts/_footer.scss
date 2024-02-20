@@ -1,4 +1,8 @@
 footer {
+    span {
+        cursor: pointer
+    }
+
     ul {
         @extend .d-flex;
         @extend .margin-none;
@@ -8,40 +12,49 @@ footer {
         align-items: center;
         gap: $marge-m
     }
+
     .content {
         padding: 3.75rem $marge-d-x;
         color: white;
-        a{
+
+        a {
             text-decoration: none;
         }
     }
+
     // Newsletter
     .newsletter {
         @extend .border-top;
         @extend .border-bottom;
         background-color: #151515;
+
         #news-form {
             @extend .position-relative;
+
             input {
                 &[type=email] {
                     height: 58px;
-                    margin-bottom: 40px;    
+                    margin-bottom: 40px;
                 }
-                &[type=submit]{
-                    @extend .position-absolute;
+
+                &[type=submit] {
+                    @extend .position-absolute-no-sm;
                     top: 0;
                     right: 0;
                 }
+
                 &[type=checkbox] {
                     margin: 0 20px 0 0;
                 }
             }
         }
     }
+
     // Social
     .social {
-        @extend .border-right;
+        @extend .border-right-no-sm;
         background-color: #020202;
+
         a {
             @extend .d-flex;
             justify-content: center;
@@ -52,11 +65,43 @@ footer {
             border-radius: 10rem;
         }
     }
+
     // Sign
     .sign {
         background-color: #020202;
+
         p {
             margin-bottom: 1rem;
+        }
+    }
+
+    @media screen and (max-width: $sm) {
+
+        .newsletter,
+        .social {
+            .content {
+                margin-top: 10vw;
+            }
+        }
+
+        .newsletter {
+            #news-form {
+                input[type="submit"] {
+                    margin-bottom: 10vw;
+                }
+            }
+        }
+
+        ul {
+            gap: 1rem;
+        }
+
+        .content {
+            padding: 0 $marge-d-x 10vw;
+
+            ul {
+                flex-wrap: wrap;
+            }
         }
     }
 }
