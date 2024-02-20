@@ -53,12 +53,22 @@ class PagesAdminFormType extends AbstractType
             ->add('page_meta_title_fr', TextType::class, [
                 'label' => 'Balise Meta Title (FR)',
                 'required' => false,
-                'mapped' => false
+                'mapped' => false,
+                'help' => 'Max 63 caractères',
+                'attr' => [
+                    'maxlength' => 63,
+                    'class' => 'metatitle_fr',
+                ]
             ])
             ->add('page_meta_desc_fr', TextareaType::class, [
                 'label' => 'Balise Meta Description (FR)',
                 'required' => false,
-                'mapped' => false
+                'mapped' => false,
+                'help' => 'Max 100 caractères',
+                'attr' => [
+                    'maxlength' => 100,
+                    'class' => 'metadesc_fr',
+                ]
             ])
 
             // Global
@@ -69,6 +79,9 @@ class PagesAdminFormType extends AbstractType
             ->add('page_url', TextType::class, [
                 'label' => 'URL de la page',
                 'required' => false,
+                'attr' => [
+                    'class' => 'metaurl',
+                ]
             ])
             ->add('status', $this->blockedPageAccess(), [
                 'label' => "Page visible",

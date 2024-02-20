@@ -1,5 +1,6 @@
 header {
-    @extend .position-fixed;
+    @extend .position-fixed-no-sm;
+    @extend .position-sticky-on-sm;
     @extend .wd-100;
     @extend .border-bottom;
     @extend .d-flex;
@@ -10,20 +11,47 @@ header {
     background-color: #151515;
     padding: 0 $marge-d-x;
     z-index: 1;
+    top: 0;
+
     figure {
         @extend .ht-100;
         @extend .d-flex;
         align-items: center;
-        img{
+
+        img {
             width: auto;
             height: 75%;
         }
     }
-    ul{
+
+    nav {
+        @extend .position-fixed-on-sm;
+
+        @media screen and (max-width: $sm) {
+            background-color: #151515;
+            top: $marge-d-y;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: $marge-m;
+            transform: translateX(-100%);
+        }
+    }
+
+    ul {
         @extend .d-flex;
         gap: $marge-m;
+
+        @media screen and (max-width: $sm) {
+            flex-direction: column;
+        }
     }
-    a{
+
+    a {
         text-decoration: none;
+    }
+
+    @media screen and (max-width: $sm) {
+        justify-content: center;
     }
 }

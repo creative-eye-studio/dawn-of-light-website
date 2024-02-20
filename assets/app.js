@@ -52,7 +52,3 @@ function parallax() {
     parallax.initParallax();
     return parallax;
 }
-
-// Navigation
-// -----------------------------------------------
-

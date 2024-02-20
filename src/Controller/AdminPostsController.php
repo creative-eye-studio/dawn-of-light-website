@@ -6,7 +6,6 @@ use App\Entity\MenuLink;
 use App\Entity\PostsList;
 use App\Services\PostsService;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,10 +42,9 @@ class AdminPostsController extends AbstractController
     /* AJOUTER UN POST
     ------------------------------------------------------- */
     #[Route('/admin/posts/ajouter', name: 'admin_posts_add')]
-    public function add_post(Request $request) 
+    public function add_post() 
     {
-        $form = $this->postService->PostManager($request, $this->security, true);
-
+        $form = $this->postService->PostManager($this->security, true);
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->redirectToRoute('admin_posts');
         }
@@ -61,14 +59,16 @@ class AdminPostsController extends AbstractController
     /* MODIFIER UN POST
     ------------------------------------------------------- */
     #[Route('/admin/posts/modifier/{post_id}', name: 'admin_posts_modify')]
-    public function modify_post(Request $request, String $post_id)
+    public function modify_post(string $post_id)
     {
         // Récupération du contenu de la page
         $post = $this->postsRepo->find($post_id);
+        if (!$post) {
+            throw $this->createNotFoundException("Aucun post n'a été trouvé");
+        }
 
         // Initialisation du formulaire
-        $form = $this->postService->PostManager($request, $this->security, false, $post_id);
-
+        $form = $this->postService->PostManager($this->security, false, $post_id);
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->redirectToRoute('admin_posts_modify', [
                 'post_id' => $post_id
@@ -92,20 +92,18 @@ class AdminPostsController extends AbstractController
     public function delete_post(string $post_id)
     {
         $post = $this->postsRepo->find($post_id);
-        $menuLink = $this->menusRepo->findBy(['post' => $post]);
-
-        if ($post) {
-            if ($menuLink) {
-                foreach($menuLink as $link){
-                    $this->em->remove($link);
-                }
-            }
-            $this->em->remove($post);
-            $this->em->flush();
-        } else {
+        if (!$post) {
             throw $this->createNotFoundException("Aucun post n'a été trouvé");
         }
-
+    
+        $menuLinks = $this->menusRepo->findBy(['post' => $post]);
+        foreach ($menuLinks as $link) {
+            $this->em->remove($link);
+        }
+    
+        $this->em->remove($post);
+        $this->em->flush();
+    
         return $this->redirectToRoute('admin_posts');
-    }
+    }    
 }

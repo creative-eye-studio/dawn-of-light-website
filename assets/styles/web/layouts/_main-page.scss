@@ -87,6 +87,22 @@
                 padding-right: 3.12rem;
             }
         }
+        @media screen and (max-width: $sm) {
+            flex-direction: column;
+            &:nth-child(even) {
+                flex-direction: column;
+            }
+            .text {
+                padding-top: 0;
+                h3 {
+                    padding: 1.06rem;
+                    text-align: left;
+                }
+                .content-text{
+                    padding: 3.12rem 0;
+                }
+            }
+        }
     }
 }
 
@@ -98,6 +114,18 @@
     .partner {
         .text{
             padding-left: 3.12rem;
+        }
+    }
+    @media screen and (max-width: $sm) {
+        img {
+            display: block;
+            margin: auto;
+        }
+        .partner {
+            .text{
+                padding-top: 3.12rem;
+                padding-left: 0;
+            }
         }
     }
 }
