@@ -79,14 +79,15 @@ export default {
         async submitForm() {
             const responseText = document.getElementById('mail-response');
             try {
-                const response = await axios.post('/contact-form', this.formData);
-                responseText.append("Le mail a bien été envoyé");
+                await axios.post('/contact-form', this.formData);
+                responseText.textContent = "Le mail a bien été envoyé";
                 responseText.classList.add('result-success');
-                // console.log("Réponse de l'API: ", response.data);
+                responseText.classList.remove('result-danger');
             } catch (error) {
                 console.error("Erreur lors de la soumission du formulaire : ", error);
-                responseText.append("Il y a eu une erreur lors de l'envoi du mail");
+                responseText.textContent = "Il y a eu une erreur lors de l'envoi du mail";
                 responseText.classList.add('result-danger');
+                responseText.classList.remove('result-success');
             }
         }
     }
