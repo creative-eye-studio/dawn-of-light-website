@@ -11,6 +11,10 @@ body{
 
 a{
     color: inherit;
+    transition-duration: .5s;
+    &:hover {
+        opacity: .4;
+    }
 }
 
 ul{

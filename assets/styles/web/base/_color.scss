@@ -2,3 +2,17 @@
     color: $colorWt;
     background: linear-gradient(180deg, #1D1D1D 0%, #000 100%);
 }
+
+.result {
+    padding: 1rem;
+    &-success {
+        @extend .result;
+        color: #3c763d;
+        background-color: #dff0d8;
+    }
+    &-danger {
+        @extend .result;
+        color: #a94442;
+        background-color: #f2dede;
+    }
+}

@@ -16,5 +16,7 @@ COPY .docker/apache.conf /etc/apache2/sites-enabled/000-default.conf
 COPY . /var/www
  
 WORKDIR /var/www
+ 
+CMD ["apache2-foreground"]
 
 RUN composer install -n

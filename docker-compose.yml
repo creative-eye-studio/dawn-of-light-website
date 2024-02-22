@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   db:
-    container_name: "database"
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=root
@@ -11,16 +10,14 @@ services:
       - MYSQL_USER=user
 
   dreamsite:
-    container_name: "dreamsite"
     build: .
     environment:
-      APP_ENV: dev
+      APP_ENV: prod
       DATABASE_URL: mysql://user:password@db:3306/db?serverVersion=5.7&charset=utf8mb4
     ports:
-      - 8010:80
+      - 8020:80
 
   phpmyadmin:
-    container_name: "phpmyadmin"
     image: phpmyadmin/phpmyadmin
     environment:
       PMA_HOST: db
@@ -32,7 +29,6 @@ services:
       - '8080:80'
 
   maildev:
-    container_name: "maildev"
     image: djfarrelly/maildev
     ports:
       - '25:25'   # Port SMTP

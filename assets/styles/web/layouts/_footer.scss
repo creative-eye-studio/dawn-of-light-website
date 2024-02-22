@@ -16,7 +16,6 @@ footer {
     .content {
         padding: 3.75rem $marge-d-x;
         color: white;
-
         a {
             text-decoration: none;
         }
@@ -62,7 +61,13 @@ footer {
             width: 4rem;
             height: 4rem;
             background-color: $colorS;
+            border: .125rem solid $colorS;
             border-radius: 10rem;
+            transition-duration: .5s;
+            &:hover {
+                background-color: rgba($color: #000000, $alpha: 0);
+                opacity: 1;
+            }
         }
     }
 

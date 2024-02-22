@@ -14,9 +14,11 @@ import './bootstrap';
 import { ScrollWeb } from './smoothScroll';
 import { Parallax } from './parallax';
 import { createApp } from 'vue';
-import AOS from 'aos';
 import LastPosts from './vue/controllers/LastPosts';
+import ContactForm from "./vue/controllers/ContactForm";
 import Newsletter from "./vue/controllers/Newsletter";
+
+
 
 // Variables
 // -----------------------------------------------
@@ -26,15 +28,32 @@ const values = {
     scrollImgSpeed: pageDatas.dataset.scrollimg
 };
 
+
+
 // Instantieur
 // -----------------------------------------------
-document.addEventListener('DOMContentLoaded', function(){
-    createApp({
-        components: { LastPosts, Newsletter }
-    }).mount('#website');
+function initVueComponents() {
+    const app = createApp({
+        components: { 
+            LastPosts,
+            ContactForm, 
+            Newsletter
+        }
+    });
+
+    app.mount('#website');
+}
+
+const commonCalls = () => {
+    initVueComponents();
     scrollWeb();
     parallax();
-});
+};
+
+document.addEventListener('DOMContentLoaded', commonCalls);
+document.addEventListener('swup:contentReplaced', commonCalls);
+
+
 
 // Smooth Scrollbar
 // -----------------------------------------------

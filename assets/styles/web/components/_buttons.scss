@@ -10,5 +10,9 @@
 .btn {
     &-primary{
         @include btn-style();
+        &-red-border {
+            @extend .btn-primary;
+            border-color: $colorS;
+        }
     }
 }

@@ -1,14 +1,49 @@
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 5vw;
+}
+
+legend {
+    @include font(600, $fsBody, false, $ff-body);
+    margin-bottom: 1rem;
+}
+
+label {
+    @extend .d-block;
+    margin-bottom: .3rem;
+}
+
 input {
     border: .0625rem solid lightgray;
     background-color: #151515;
+
     &[type=text],
-    &[type=email]  {
+    &[type=email] {
         @include font(400, $fsBody, false, $ff-body);
         @extend .wd-100;
         color: $colorWt;
         padding: calc($marge-m / 2) $marge-m;
     }
+
     &[type=submit] {
         @include btn-style();
     }
+}
+
+textarea, select {
+    @include font(400, $fsBody, false, $ff-body);
+    @extend .wd-100;
+    border: .0625rem solid lightgray;
+    background-color: #151515;
+    color: $colorWt;
+    padding: calc($marge-m / 2) $marge-m;
+}
+
+option {
+    font-family: 'calibri';
+}
+
+textarea {
+    height: 150px;
 }
