@@ -16,7 +16,11 @@ COPY .docker/apache.conf /etc/apache2/sites-enabled/000-default.conf
 COPY . /var/www
  
 WORKDIR /var/www
- 
+
+# Donner les droits d'écriture au cache prod
+RUN chmod -R 777 var/cache/prod
+RUN chmod -R 777 var/log
+
 CMD ["apache2-foreground"]
 
 RUN composer install -n

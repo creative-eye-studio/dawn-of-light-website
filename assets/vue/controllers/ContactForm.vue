@@ -49,6 +49,10 @@
                     <label for="motivations">En quelques lignes, explique ce qui te motive à nous rejoindre et ce que tu espères de ce projet. *</label>
                     <textarea name="motivations" id="motivations" required v-model="formData.motivations"></textarea>
                 </p>
+                <div class="checkbox d-flex">
+                    <input type="checkbox" name="contact-checkbox" id="contact-checkbox">
+                    <label for="contact-checkbox">En soumettant ce formulaire, j'accepte que mes données soient transmises à des fins de relation avec l'équipe du projet. Le formulaire est sécurisé à l'aide de Google ReCaptcha.</label>
+                </div>
             </fieldset>
             <p id="mail-response"></p>
             <p>

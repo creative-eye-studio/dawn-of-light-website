@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   db:
-    image: mysql:5.7
+    image: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_PASSWORD=password
@@ -14,6 +14,7 @@ services:
     environment:
       APP_ENV: prod
       DATABASE_URL: mysql://user:password@db:3306/db?serverVersion=5.7&charset=utf8mb4
+      MAILER_DSN: smtp://maildev:2526
     ports:
       - 8020:80
 
@@ -26,13 +27,14 @@ services:
       PMA_USER: user          # Nom d'utilisateur root pour PhpMyAdmin
       PMA_PASSWORD: password  # Mot de passe root pour PhpMyAdmin
     ports:
-      - '8080:80'
+      - '8081:80'
 
   maildev:
     image: djfarrelly/maildev
     ports:
-      - '25:25'   # Port SMTP
-      - '80:80'   # Port Web
+      - '2526:25'   # Port SMTP
+      - '1280:1280'   # Port Web
+    command: bin/maildev --smtp 2526 --web 1280
 
 # Names our volume
 volumes:
