@@ -19,6 +19,14 @@ class ApiController extends AbstractController
         $this->formService = $formService;
     }
 
+    #[Route(path: '/api/brevo-api', name: 'brevo_api')]
+    public function getBrevoApiKey(): JsonResponse
+    {
+        return $this->json([
+            'brevoApiKey' => $this->getParameter('brevo_api')
+        ]);
+    }
+
     #[Route('/contact-form', name: 'api_contact_form')]
     public function contactForm(): JsonResponse
     {
