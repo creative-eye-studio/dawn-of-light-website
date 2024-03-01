@@ -54,6 +54,7 @@
                     <label for="contact-checkbox">En soumettant ce formulaire, j'accepte que mes données soient transmises à des fins de relation avec l'équipe du projet. Le formulaire est sécurisé à l'aide de Google ReCaptcha.</label>
                 </div>
             </fieldset>
+            <div class="g-recaptcha" data-sitekey="6LcbsoYpAAAAAI0RZDryyMEHPPOrxzw8JlAenrJp"></div>
             <p id="mail-response"></p>
             <p>
                 <button type="submit" class="btn-primary-red-border">Envoyer</button>

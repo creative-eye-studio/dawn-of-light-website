@@ -42,8 +42,8 @@ function cookiesInit(){
     // (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
     
     // Google Recaptcha
-    // tarteaucitron.user.recaptchaapi = '';
-    // (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
+    tarteaucitron.user.recaptchaapi = '6LcbsoYpAAAAAMs7sEvygyeFDzNqub1jYKVbADVE';
+    (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
 
     // Facebook Pixel
     // tarteaucitron.user.facebookpixelId = 'YOUR-ID'; 
