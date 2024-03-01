@@ -1,50 +1,52 @@
 version: '3'
+
 services:
-    dol_web_cms:
-        container_name: dol_web_cms
-        hostname: dol_web
-        image: kevinad/dol-web
-        restart: unless-stopped
-        volumes:
-            - 'dol_volume:/var/www/html/dol-web-volumes'
-        networks: 
-            - nginx_networks
-            - dreamsite
-        environment:
-            - APP_ENV=dev
-            - DATABASE_URL=mysql://root:4FKaHt41MOFeeeilOB4Z@dol_web_db:3306/dawn_of_light?serverVersion=5.7&charset=utf8mb4
-        ports:
-            - '8090:80'
-      
-    dol_web_db:
-        container_name: dol_web_db
-        image: mysql
-        environment:
-            - MYSQL_ROOT_PASSWORD=4FKaHt41MOFeeeilOB4Z
-            - MYSQL_PASSWORD=4FKaHt41MOFeeeilOB4Z
-            - MYSQL_USER=dawn_of_light
-            - MYSQL_DATABASE=dawn_of_light
-        volumes:
-            - 'dol_volume_db:/var/lib/mysql'
-        networks:
-            - dreamsite
-      
-    dol_web_pma:
-        container_name: dol_web_pma
-        image: phpmyadmin/phpmyadmin
-        environment:
-            - PMA_HOST=dol_web_db
-            - PMA_USER=dawn_of_light             # Nom d'utilisateur root pour PhpMyAdmin
-            - PMA_PASSWORD=4FKaHt41MOFeeeilOB4Z  # Mot de passe root pour PhpMyAdmin
-        ports:
-            - '8081:80'
-        networks:
-            - dreamsite
+  dol_web_cms:
+    container_name: dol_web_cms
+    hostname: dol_web
+    image: kevinad/dol-web
+    restart: unless-stopped
+    volumes:
+      - 'dol_volume:/var/www/html/dol-web-volumes'
+    networks: 
+      - nginx_networks
+      - dreamsite
+    environment:
+      - APP_ENV=prod
+      - MAILER_DSN=gmail+smtp://USERNAME:APP-PASSWORD@default
+      - DATABASE_URL=mysql://root:password@dol_web_db:3306/dawn_of_light?serverVersion=5.7&charset=utf8mb4
+    ports:
+      - '8090:80'
+  
+  dol_web_db:
+    container_name: dol_web_db
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_PASSWORD=password
+      - MYSQL_USER=dawn_of_light
+      - MYSQL_DATABASE=dawn_of_light
+    volumes:
+      - 'dol_volume_db:/var/lib/mysql'
+    networks:
+      - dreamsite
+  
+  dol_web_pma:
+    container_name: dol_web_pma
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=dol_web_db
+      - PMA_USER=dawn_of_light     # Nom d'utilisateur root pour PhpMyAdmin
+      - PMA_PASSWORD=password      # Mot de passe root pour PhpMyAdmin
+    ports:
+      - '8081:80'
+    networks:
+      - dreamsite
 
 networks:
-    nginx_networks:
-    dreamsite: null
+  nginx_networks:
+  dreamsite: null
 
 volumes:
-    dol_volume:
-    dol_volume_db:
+  dol_volume:
+  dol_volume_db:
