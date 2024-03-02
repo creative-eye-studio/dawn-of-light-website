@@ -10,7 +10,7 @@
             <label for="news-checkbox">En soumettant ce formulaire, j'accepte que mes données soient transmises à des fins
                 de marketing. Le formulaire est sécurisé à l'aide de Google ReCaptcha.</label>
         </div>
-        <div class="g-recaptcha" data-sitekey="6LcGyIYpAAAAAIDuB8yYKQTdZWdF_eHaNC6UTbmR"></div>
+        <div class="g-recaptcha" data-sitekey="6LdW-oYpAAAAAAIYXpQm9b8NaqTPCROX9V__pcET"></div>
     </form>
 </template>
 
