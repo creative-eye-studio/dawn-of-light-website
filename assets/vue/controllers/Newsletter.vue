@@ -33,7 +33,6 @@ export default {
                 const response = await fetch('/api/brevo-api');
                 const data = await response.json();
                 this.brevoApiKey = data.brevoApiKey;
-                console.log(this.brevoApiKey);
             } catch (error) {
                 console.error("Erreur lors de la récupération de l'API : ", error);
             }
