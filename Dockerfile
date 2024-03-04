@@ -1,3 +1,6 @@
+
+# CONFIGURATION DE COMPOSER
+# ---------------------------------------------------------------------------------
 FROM php:8.2-apache
 
 RUN a2enmod rewrite
@@ -21,6 +24,21 @@ WORKDIR /var/www
 RUN chmod -R 777 var/cache/prod
 RUN chmod -R 777 var/log
 
-CMD ["apache2-foreground"]
-
 RUN composer install -n
+
+# CONFIGURATION DE NPM
+# ---------------------------------------------------------------------------------
+
+# Installation de Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
+
+# Installation des dépendances npm
+COPY package.json .
+COPY package-lock.json .
+RUN npm install
+
+# Exécution de npm run build
+RUN npm run build
+
+CMD ["apache2-foreground"]
