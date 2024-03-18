@@ -27,6 +27,28 @@ class ApiController extends AbstractController
         ]);
     }
 
+    #[Route(path: '/api/recaptcha', name: 'recaptcha')]
+    public function recaptcha(): JsonResponse
+    {
+        $recaptchaPublic = $this->getParameter('recaptcha_public');
+        $recaptchaPrivate = $this->getParameter('recaptcha_private');
+
+        return $this->json([
+            'public' => $recaptchaPublic,
+            'private' => $recaptchaPrivate
+        ]);
+    }
+
+    #[Route(path: '/api/analytics', name: 'analytics')]
+    public function analytics(): JsonResponse
+    {
+        $analyticsKey = $this->getParameter('google_analytics');
+
+        return $this->json([
+            'key' => $analyticsKey
+        ]);
+    }
+
     #[Route('/contact-form', name: 'api_contact_form')]
     public function contactForm(): JsonResponse
     {
