@@ -54,7 +54,9 @@
                     <label for="contact-checkbox">En soumettant ce formulaire, j'accepte que mes données soient transmises à des fins de relation avec l'équipe du projet. Le formulaire est sécurisé à l'aide de Google ReCaptcha.</label>
                 </div>
             </fieldset>
-            <div class="g-recaptcha" data-sitekey="6LdW-oYpAAAAAAIYXpQm9b8NaqTPCROX9V__pcET"></div>
+
+            <div class="g-recaptcha" data-sitekey="6LeyTp0pAAAAANPaUNcgNOxBGqlH-RYe4AGQSD9n"></div>
+
             <p id="mail-response"></p>
             <p>
                 <button type="submit" class="btn-primary-red-border">Envoyer</button>
@@ -65,9 +67,11 @@
 
 <script>
 import axios from 'axios';
+
 export default {
     data() {
         return {
+            publicKey: '',
             formData: {
                 nom: '',
                 prenom: '',
@@ -80,7 +84,27 @@ export default {
             }
         }
     },
+    directives: {
+        recaptchaSitekey: {
+            mounted(el, binding) {
+                el.setAttribute('data-sitekey', binding.value);
+            }
+        }
+    },
+    beforeMount() {
+        this.fetchGoogleApiKey();
+    },
     methods: {
+
+        async fetchGoogleApiKey() {
+            try {
+                const response = await axios.get('/api/recaptcha');
+                this.publicKey = response.data.public;
+            } catch (error) {
+                console.error("Erreur lors de la récupération de la clé publique reCAPTCHA : ", error);
+            }
+        },
+
         async submitForm() {
             const responseText = document.getElementById('mail-response');
             try {

@@ -7,14 +7,19 @@
         </div>
         <div class="checkbox d-flex">
             <input type="checkbox" name="news-checkbox" id="news-checkbox">
-            <label for="news-checkbox">En soumettant ce formulaire, j'accepte que mes données soient transmises à des fins
+            <label for="news-checkbox">En soumettant ce formulaire, j'accepte que mes données soient transmises à des
+                fins
                 de marketing. Le formulaire est sécurisé à l'aide de Google ReCaptcha.</label>
         </div>
-        <div class="g-recaptcha" data-sitekey="6LdW-oYpAAAAAAIYXpQm9b8NaqTPCROX9V__pcET"></div>
+
+        <div class="g-recaptcha" data-sitekey="6LeyTp0pAAAAANPaUNcgNOxBGqlH-RYe4AGQSD9n"></div>
+
     </form>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     data() {
         return {
@@ -22,10 +27,19 @@ export default {
                 mail: ''
             },
             brevoApiKey: '',
+            publicKey: '',
+        }
+    },
+    directives: {
+        recaptchaSitekey: {
+            mounted(el, binding) {
+                el.setAttribute('data-sitekey', binding.value);
+            }
         }
     },
     mounted() {
         this.fetchBrevoApiKey();
+        this.fetchGoogleApiKey();
     },
     methods: {
         async fetchBrevoApiKey() {
@@ -35,6 +49,15 @@ export default {
                 this.brevoApiKey = data.brevoApiKey;
             } catch (error) {
                 console.error("Erreur lors de la récupération de l'API : ", error);
+            }
+        },
+
+        async fetchGoogleApiKey() {
+            try {
+                const response = await axios.get('/api/recaptcha');
+                this.publicKey = response.data.public;
+            } catch (error) {
+                console.error("Erreur lors de la récupération de la clé publique reCAPTCHA : ", error);
             }
         },
 
