@@ -25,13 +25,9 @@ tarteaucitron.init({
 
 function cookiesInit(){
     // Google Analytics
-    fetch('/api/analytics')
-        .then(response => response.json())
-        .then(data => {
-            tarteaucitron.user.gtagUa = data.key;
-            tarteaucitron.user.gtagMore = function () { /* add here your optionnal gtag() */ };
-            (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
-        })
+    tarteaucitron.user.gtagUa = "KEY";
+    tarteaucitron.user.gtagMore = function () { /* add here your optionnal gtag() */ };
+    (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
 
     // Matomo
     // tarteaucitron.user.matomoId = '';
@@ -47,12 +43,8 @@ function cookiesInit(){
     // (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
     
     // Google Recaptcha
-    fetch('/api/recaptcha')
-        .then(response => response.json())
-        .then(data => {
-            tarteaucitron.user.recaptchaapi = data.private;
-            (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
-        })
+    tarteaucitron.user.recaptchaapi = "KEY";
+    (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
     
 
     // Facebook Pixel

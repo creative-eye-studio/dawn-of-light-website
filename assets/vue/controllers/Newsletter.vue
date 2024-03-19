@@ -12,7 +12,7 @@
                 de marketing. Le formulaire est sécurisé à l'aide de Google ReCaptcha.</label>
         </div>
 
-        <div class="g-recaptcha" data-sitekey="6LeyTp0pAAAAANPaUNcgNOxBGqlH-RYe4AGQSD9n"></div>
+        <div class="g-recaptcha" data-sitekey="6LfTXZ4pAAAAAFqfPDqZY7FImb9BJeS82BpbmWqo"></div>
 
     </form>
 </template>
