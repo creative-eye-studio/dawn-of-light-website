@@ -55,7 +55,7 @@
                 </div>
             </fieldset>
 
-            <div class="g-recaptcha" data-sitekey="6LfTXZ4pAAAAAFqfPDqZY7FImb9BJeS82BpbmWqo"></div>
+            <div class="g-recaptcha" data-sitekey="6LfTXZ4pAAAAAFqfPDqZY7FImb9BJeS82BpbmWqo" data-size="invisible"></div>
 
             <p id="mail-response"></p>
             <p>

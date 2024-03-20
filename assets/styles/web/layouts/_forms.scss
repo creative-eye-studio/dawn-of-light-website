@@ -61,3 +61,7 @@ option {
 textarea {
     height: 150px;
 }
+
+.grecaptcha-badge {
+    @extend .d-none;
+}
